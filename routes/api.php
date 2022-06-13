@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\miscallenous;
 use App\Http\Controllers\index;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/user',[index::class,'index']);
-Route::get('/topup',[index::class,'topup']);
-Route::post('/data',[index::class,'data']);
+
+Route::post('data',[miscallenous::class, 'data']);
