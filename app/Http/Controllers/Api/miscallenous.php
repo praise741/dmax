@@ -42,7 +42,7 @@ $response = Http::withHeaders([
 return response()->json([
 "status" => "pending",
 "message" => "await response on your call back url",
-"call_back url" =>   session('request'),
+"call_back url" =>   session('data'),
 "request_id" => $id,
 'response' => $response
 
