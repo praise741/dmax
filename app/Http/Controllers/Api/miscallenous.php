@@ -44,6 +44,7 @@ return response()->json([
 "message" => "await response on your call back url",
 "call_back url" =>   session('request'),
 "request_id" => $id,
+'response' => $response
 
 
 
@@ -53,7 +54,16 @@ return response()->json([
 
 
    }
+public function callback(Request $request){
+    $response = Http::withHeaders([
+        'id' => $request->id,
 
+    ])->post($request -> url, [
+        $request
+
+    ]);
+
+}
 
 
    public function cable(Request $request)
