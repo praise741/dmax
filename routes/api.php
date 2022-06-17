@@ -21,3 +21,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::post('data',[miscallenous::class, 'data'])->middleware('token');
+Route::post('cable',[miscallenous::class,'cable'])->middleware('token');
+Route::post('meter',[miscallenous::class,'meter'])->middleware('token');
+Route::post('airtime',[miscallenous::class,'airtime'])->middleware('token');

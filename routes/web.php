@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\miscallenous;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
-
+Route::post('/user',function(){
+return response()->json(Auth::user());
+});
+Route::post('cable',[miscallenous::class,'cable']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/api.php';

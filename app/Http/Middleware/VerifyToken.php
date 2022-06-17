@@ -21,7 +21,8 @@ class VerifyToken
         if ( User::where('token',$request->header('Authorization'))->count() > 0 ) {
             return $next($request);
         }
-       else return response('fuck you');
+       else return response(['message' => 'you are a bitch',
+                             'Message' => 'go to your dashboard to get your token or register to get your token'],404);
 
 
     }
