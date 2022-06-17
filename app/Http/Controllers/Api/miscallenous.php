@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
 
 class miscallenous extends Controller
 {
@@ -15,10 +15,10 @@ public function data(Request $request)
 
 validator($request->all(), [
    'network_id' => ['required','integer','min:0|max:8'],
-   'url' => ['required','url'],
+   'url' => ['required'],
    'phone_no'  => ['required',],
    'plan_id'   => ['required','integer'],
-   'ported_number' => ['required']
+
 ])->validate();
 
 $id = rand(0, 99999);
@@ -26,6 +26,18 @@ $id = rand(0, 99999);
 $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
+$response = Http::withHeaders([
+    'X-First' => 'foo',
+    'X-Second' => 'bar'
+])->post('https://www.datamaxs.com/0/apitest', [
+    'network_id'=> $request->network_id,
+    'url' => $request->url,
+    'phone_no' => $request->phone_no,
+    'plan_id' => $request->plan_id,
+    'ported_number' => 'true',
+    "request_id" => $id,
+
+]);
 
 return response()->json([
 "status" => "pending",
@@ -111,7 +123,7 @@ $user = ['url' => $request->url, 'request_id' => $id ];
 
      $user = ['url' => $request->url, 'request_id' => $id ];
 
-     
+
 
      return response()->json([
      "status" => "pending",
