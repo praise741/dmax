@@ -28,20 +28,23 @@ $user = ['url' => $request->url, 'request_id' => $id ];
 session(['data' => $user]);
 $response = Http::post('https://www.datamaxs.com/0/apitest', [
     'network_id'=> $request->network_id,
-    'url' => $request->url,
+    'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
     'phone_no' => $request->phone_no,
     'plan_id' => $request->plan_id,
     'ported_number' => 'true',
+    'callback' => $request->url,
+    'request_id' => $id,
 
 
 ]);
+$res = $response->json();
 
 return response()->json([
 "status" => "pending",
 "message" => "await response on your call back url",
 "call_back url" =>   session('data'),
 "request_id" => $id,
-'response' => $response->json()
+'response' => $response->json('text_status')
 
 
 
