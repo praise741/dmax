@@ -32,8 +32,7 @@ $response = Http::post('https://www.datamaxs.com/0/apitest', [
     'phone_no' => $request->phone_no,
     'plan_id' => $request->plan_id,
     'ported_number' => 'true',
-    'callback' => $request->url,
-    'request_id' => $id,
+
 
 
 ]);
