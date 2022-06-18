@@ -44,7 +44,7 @@ return response()->json([
 "call_back url" =>   session('data'),
 "request_id" => $id,
 'response' => $response->json(),
-'request' => $request->all()
+'request' => $request->network_id,
 
 
 
