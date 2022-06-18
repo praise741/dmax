@@ -26,7 +26,7 @@ $id = rand(0, 99999);
 $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
-$response = Http::post('https://www.datamaxs.com/0/apitest', [
+$response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
     'network_id'=> $request->network_id,
     'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
     'phone_no' => $request->phone_no,
