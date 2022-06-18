@@ -26,16 +26,13 @@ $id = rand(0, 99999);
 $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
-$response = Http::withHeaders([
-    'X-First' => 'foo',
-    'X-Second' => 'bar'
-])->post('https://www.datamaxs.com/0/apitest', [
+$response = Http::post('https://www.datamaxs.com/0/apitest', [
     'network_id'=> $request->network_id,
     'url' => $request->url,
     'phone_no' => $request->phone_no,
     'plan_id' => $request->plan_id,
     'ported_number' => 'true',
-    "request_id" => $id,
+
 
 ]);
 
