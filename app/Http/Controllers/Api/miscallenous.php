@@ -41,7 +41,7 @@ return response()->json([
 "message" => "await response on your call back url",
 "call_back url" =>   session('data'),
 "request_id" => $id,
-'response' => $response
+'response' => $response->json()
 
 
 
