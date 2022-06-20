@@ -32,16 +32,16 @@ $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
     'phone_no' => $request->phone_no,
     'plan_id' => $request->plan_id,
     'ported_number' => 'true',
+    'call_back_url' => $request->url,
+    'request_id' => $id
 
 
 
 ]);
-$res = $response->json();
+
 
 return response()->json([
-"status" => "pending",
-"message" => "await response on your call back url",
-"call_back url" =>   session('data'),
+
 "request_id" => $id,
 'response' => $response->json(),
 'request' => $request->network_id,
@@ -78,16 +78,23 @@ public function callback(Request $request){
 
     ])->validate();
     $id = rand(0, 99999);
-$user = ['url' => $request->url, 'request_id' => $id ];
-    session(['cable' => $user]);
-    return response()->json([
-        "status" => "pending",
-        "message" => "await response on your call back url",
-        "call_back url" =>   session('cable'),
+    $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+        'cable_name'=> $request->cable_name,
+        'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
+        'cable_plan' => $request->cable_plan,
+        'smart_card_number' => $request->smart_card_number,
+
+        'call_back_url' => $request->url,
         'request_id' => $id
 
 
 
+    ]);
+
+    return response()->json([
+    "request_id" => $id,
+    'response' => $response->json(),
+    'request' => $request->network_id,
         ]);
 
    }
@@ -107,17 +114,25 @@ $user = ['url' => $request->url, 'request_id' => $id ];
 
     ])->validate();
     $id = rand(0, 99999);
-   $user = ['url' => $request->url, 'request_id' => $id ];
-    session(['meter' => $user]);
+    $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+        'amount'=> $request->amount,
+        'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
+        'meter_no' => $request->meter_no,
+        'meter_type' => $request->meter_type,
+
+        'call_back_url' => $request->url,
+        'request_id' => $id
+
+
+
+    ]);
     return response()->json([
-        "status" => "pending",
-        "message" => "await response on your call back url",
-        "call_back url" =>   session('meter'),
         "request_id" => $id,
+        'response' => $response->json(),
+        'request' => $request->network_id,
+            ]);
 
 
-
-        ]);
    }
    public function airtime (Request $request){
 
@@ -130,20 +145,26 @@ $user = ['url' => $request->url, 'request_id' => $id ];
      ])->validate();
 
      $id = rand(0, 99999);
+     $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+        'amount'=> $request->amount,
+        'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
+        'network_id' => $request->network_id,
+        'airtime_type' => $request->airtime_type,
 
-     $user = ['url' => $request->url, 'request_id' => $id ];
+        'call_back_url' => $request->url,
+        'request_id' => $id
+
+
+
+    ]);
 
 
 
      return response()->json([
-     "status" => "pending",
-     "message" => "await response on your call back url",
-     "call_back url" =>   session('request'),
-     "request_id" => $id,
-
-
-
-     ]);
+        "request_id" => $id,
+        'response' => $response->json(),
+        'request' => $request->network_id,
+            ]);
 
 
 
