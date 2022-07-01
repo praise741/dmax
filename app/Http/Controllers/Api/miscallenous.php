@@ -29,7 +29,7 @@ $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
 
-$response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
+$response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtimenew', [
     'network_id'=> $request->network_id,
     'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
     'phone_no' => $request->phone_no,
@@ -81,7 +81,7 @@ public function callback(Request $request){
 
     ])->validate();
     $id = rand(0, 99999);
-    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
+    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtimenew', [
         'cable_name'=> $request->cable_name,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'cable_plan' => $request->cable_plan,
@@ -117,7 +117,7 @@ public function callback(Request $request){
 
     ])->validate();
     $id = rand(0, 99999);
-    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
+    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtimenew', [
         'amount'=> $request->amount,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'meter_no' => $request->meter_no,
@@ -148,7 +148,7 @@ public function callback(Request $request){
      ])->validate();
 
      $id = rand(0, 99999);
-     $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
+     $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtimenew', [
         'amount'=> $request->amount,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'network_id' => $request->network_id,
