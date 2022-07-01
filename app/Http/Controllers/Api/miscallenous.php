@@ -141,7 +141,7 @@ public function callback(Request $request){
 
     validator($request->all(), [
         'network_id' => ['required','integer','min:0|max:8'],
-        'url' => ['required','url'],
+
         'phone_no'  => ['required'],
         'amount'   => ['required','integer'],
 
