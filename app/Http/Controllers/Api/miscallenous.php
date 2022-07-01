@@ -163,10 +163,7 @@ public function callback(Request $request){
         "request_id" => $id,
         'response' => $response->json(),
         'request' => $request->network_id,
-        'amount'=> $request->amount,
-        'api_key' =>  $request->header('Authorization'),
-        'network_id' => $request->network_id,
-        'phone_no'  => $request->phone_no,
+
             ]);
 
 
