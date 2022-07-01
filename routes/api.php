@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('call-back',[miscallenous::class,'callback'])->middleware('token');
-Route::post('data',[miscallenous::class, 'data'])->middleware('token');
-Route::post('cable',[miscallenous::class,'cable'])->middleware('token');
-Route::post('meter',[miscallenous::class,'meter'])->middleware('token');
-Route::post('airtime',[miscallenous::class,'airtime'])->middleware('token');
+Route::post('call-back',[miscallenous::class,'callback']);
+Route::post('data',[miscallenous::class, 'data']);
+Route::post('cable',[miscallenous::class,'cable']);
+Route::post('meter',[miscallenous::class,'meter']);
+Route::post('airtime',[miscallenous::class,'airtime']);
