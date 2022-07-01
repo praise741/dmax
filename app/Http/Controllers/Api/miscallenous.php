@@ -148,7 +148,7 @@ public function callback(Request $request){
      ])->validate();
 
      $id = rand(0, 99999);
-     $response = Http::post('http://www.datamaxs.com/datamaxspro/datamaxscopy/0/Airtimenew', [
+     $response = Http::asForm()->post('http://www.datamaxs.com/datamaxspro/datamaxscopy/0/Airtimenew', [
         'amount'=> $request->amount,
         'api_key' =>  $request->header('Authorization'),
         'network_id' => $request->network_id,
