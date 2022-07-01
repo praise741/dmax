@@ -144,19 +144,18 @@ public function callback(Request $request){
         'url' => ['required','url'],
         'phone_no'  => ['required'],
         'amount'   => ['required','integer'],
-        'airtime_type' => ['required']
+
      ])->validate();
 
      $id = rand(0, 99999);
      $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtimenew', [
         'amount'=> $request->amount,
-        'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
+        'api_key' =>  $request->header('Authorization'),
         'network_id' => $request->network_id,
-        'airtime_type' => $request->airtime_type,
-        'username' => Auth::user()->name,
+        'phone_no'  => $request->phone_no,
+        'ported_number' =>  true,
 
 
-        'call_back_url' => $request->url,
         'request_id' => $id
 
 
