@@ -153,10 +153,10 @@ public function callback(Request $request){
         'api_key' =>  $request->header('Authorization'),
         'network_id' => $request->network_id,
         'phone_no'  => $request->phone_no,
-        'ported_number' =>  true,
+        'ported_number' =>  'true',
 
 
-        'request_id' => $id
+
 
 
 
