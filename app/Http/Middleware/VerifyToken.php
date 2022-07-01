@@ -18,6 +18,7 @@ class VerifyToken
      */
     public function handle(Request $request, Closure $next)
     {
+
         if ( User::where('token',$request->header('Authorization'))->count() > 0 ) {
             return $next($request);
         }

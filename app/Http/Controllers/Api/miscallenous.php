@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -26,6 +27,7 @@ $id = rand(0, 99999);
 $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
+
 $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
     'network_id'=> $request->network_id,
     'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
@@ -169,4 +171,6 @@ public function callback(Request $request){
 
 
    }
+
 }
+
