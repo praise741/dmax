@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class miscallenous extends Controller
@@ -28,7 +29,7 @@ $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
 
-$response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+$response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
     'network_id'=> $request->network_id,
     'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
     'phone_no' => $request->phone_no,
@@ -80,7 +81,7 @@ public function callback(Request $request){
 
     ])->validate();
     $id = rand(0, 99999);
-    $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
         'cable_name'=> $request->cable_name,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'cable_plan' => $request->cable_plan,
@@ -116,7 +117,7 @@ public function callback(Request $request){
 
     ])->validate();
     $id = rand(0, 99999);
-    $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+    $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
         'amount'=> $request->amount,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'meter_no' => $request->meter_no,
@@ -147,11 +148,13 @@ public function callback(Request $request){
      ])->validate();
 
      $id = rand(0, 99999);
-     $response = Http::asForm()->post('https://www.datamaxs.com/0/apitest', [
+     $response = Http::asForm()->post('https://www.datamaxs.com/datamaxs/datamaxscopy/0/Airtime', [
         'amount'=> $request->amount,
         'url' => 'https://purple-feather-larr3wss3s.ploi.link/data',
         'network_id' => $request->network_id,
         'airtime_type' => $request->airtime_type,
+        'username' => Auth::user()->name,
+
 
         'call_back_url' => $request->url,
         'request_id' => $id
