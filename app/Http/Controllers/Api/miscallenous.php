@@ -25,6 +25,7 @@ validator($request->all(), [
 
 $id = rand(0, 99999);
 
+
 $user = ['url' => $request->url, 'request_id' => $id ];
 
 session(['data' => $user]);
@@ -57,16 +58,6 @@ return response()->json([
 
 
    }
-public function callback(Request $request){
-    $response = Http::withHeaders([
-        'id' => $request->id,
-
-    ])->post($request -> url, [
-        $request
-
-    ]);
-
-}
 
 
    public function cable(Request $request)
@@ -169,6 +160,19 @@ public function callback(Request $request){
 
 
    }
+  public function callback(Request $request)
+  {
+  $security =  $request->header('authorization');
+  if ($security){
 
+dd($security);
+
+
+  }
+
+  else {
+    dd('input your authorization code');
+  }
 }
 
+}
